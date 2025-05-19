@@ -1,0 +1,11 @@
+torch>=1.10.0
+torchvision>=0.11.0
+ultralytics>=8.0.0
+opencv-python>=4.6.0
+pillow>=7.1.2
+numpy>=1.23.0
+matplotlib>=3.3.0
+albumentations>=1.0.0
+tqdm>=4.64.0
+pyyaml>=5.3.1
+scikit-learn>=1.0.0
