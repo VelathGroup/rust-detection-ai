@@ -24,7 +24,7 @@ names: ['steel_rust', 'steel_clean', 'nonsteel_rust', 'nonsteel_clean']
 """
         with open(os.path.join(args.data_dir, 'data.yaml'), 'w') as f:
             f.write(yaml_content)
-        print(f"✅ Created data.yaml file at {os.path.join(args.data_dir, 'data.yaml')}")
+        print(f" Created data.yaml file at {os.path.join(args.data_dir, 'data.yaml')}")
     
     # Check if dataset exists
     train_img_dir = os.path.join(args.data_dir, 'images/train')
@@ -43,7 +43,7 @@ names: ['steel_rust', 'steel_clean', 'nonsteel_rust', 'nonsteel_clean']
     
     # Load base model
     model = YOLO(args.base_model)
-    print(f"✅ Loaded base model: {args.base_model}")
+    print(f" Loaded base model: {args.base_model}")
     
     # Train the model
     results = model.train(
@@ -69,12 +69,12 @@ names: ['steel_rust', 'steel_clean', 'nonsteel_rust', 'nonsteel_clean']
     import shutil
     shutil.copy(best_model_path, os.path.join(args.output_dir, 'yolo_best.pt'))
     
-    print(f"✅ Best model saved to {os.path.join(args.output_dir, 'yolo_best.pt')}")
+    print(f" Best model saved to {os.path.join(args.output_dir, 'yolo_best.pt')}")
     
     # Export to ONNX if requested
     if args.export_onnx:
         model.export(format='onnx')
-        print("✅ Model exported to ONNX format.")
+        print(" Model exported to ONNX format.")
     
     return os.path.join(args.output_dir, 'yolo_best.pt')
 
