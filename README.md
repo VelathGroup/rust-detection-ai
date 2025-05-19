@@ -237,9 +237,9 @@ python src/train_classifier.py --data_dir data/rust_level_dataset \
 
 | Model | Accuracy | Precision | Recall | F1 Score | mAP@0.5 | mAP@0.5:0.95 |
 |-------|----------|-----------|--------|----------|---------|--------------|
-| YOLO Steel/Rust Detector | 91.2% | 88.5% | 90.0% | 89.2% | 87.3% | 68.2% |
-| UNet Edge Detector | 94.3% | - | - | - | - | - |
-| Rust Level Classifier | 92.8% | 91.2% | 89.7% | 90.4% | - | - |
+| YOLO Steel/Rust Detector | % | % | % | % | % | % |
+| UNet Edge Detector | % | - | - | - | - | - |
+| Rust Level Classifier | % | % | % | % | - | - |
 
 ## 📦 Model Zoo
 
