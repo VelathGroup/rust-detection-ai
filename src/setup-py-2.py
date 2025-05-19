@@ -39,7 +39,7 @@ def create_project_folders(base_path="./"):
         with open(gitkeep_path, 'w') as f:
             pass
     
-    print(f"✅ All project folders created successfully inside: {base_path}")
+    print(f" All project folders created successfully inside: {base_path}")
     
     # Create YOLO dataset config file
     yaml_content = """
@@ -52,7 +52,7 @@ names: ['steel_rust', 'steel_clean', 'nonsteel_rust', 'nonsteel_clean']
     with open(os.path.join(base_path, 'data/yolo_dataset/data.yaml'), 'w') as f:
         f.write(yaml_content)
 
-    print("✅ YOLO dataset config file created successfully")
+    print(" YOLO dataset config file created successfully")
 
 def download_models(models_dir="models", force_download=False):
     """
@@ -109,11 +109,11 @@ def download_models(models_dir="models", force_download=False):
                     dummy_model = torch.nn.Linear(1024, 2)
                     torch.save(dummy_model.state_dict(), filepath)
             
-            print(f"✅ Created placeholder for {filename}")
+            print(f" Created placeholder for {filename}")
         else:
-            print(f"✅ Model file {filename} already exists")
+            print(f" Model file {filename} already exists")
     
-    print("\n✅ All required model files are available in the models directory")
+    print("\n All required model files are available in the models directory")
     print("Note: These are placeholder files. In a real deployment, you would need to train actual models.")
 
 def download_sample_data(base_path="./", force_download=False):
@@ -146,11 +146,11 @@ def download_sample_data(base_path="./", force_download=False):
                 cv2.circle(img, (208, 208), 150, (100, 180, 100), -1)
             
             cv2.imwrite(img_path, img)
-            print(f"✅ Created sample image: {img_path}")
+            print(f" Created sample image: {img_path}")
         else:
-            print(f"✅ Sample image already exists: {img_path}")
+            print(f" Sample image already exists: {img_path}")
     
-    print("\n✅ Sample data created successfully")
+    print("\n Sample data created successfully")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Setup Steel Surface Inspection Robot project')
@@ -170,7 +170,7 @@ if __name__ == "__main__":
     # Download/create sample data
     download_sample_data(args.base_path, args.force_download)
     
-    print("\n✅ Setup completed successfully!")
+    print("\n Setup completed successfully!")
     print("\nTo run the inference pipeline, use:")
     print("python src/inference.py --image sample_data/sample_1.jpg")
     
