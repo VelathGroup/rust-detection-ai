@@ -39,7 +39,7 @@ def load_models(models_dir="models"):
         raise FileNotFoundError(f"YOLO model not found at {yolo_path}")
     
     yolo_model = YOLO(yolo_path)
-    print("✅ YOLO model loaded successfully")
+    print(" YOLO model loaded successfully")
 
     # Load UNet Edge Detector
     unet_path = os.path.join(models_dir, 'unet_edge_detector.pth')
@@ -50,7 +50,7 @@ def load_models(models_dir="models"):
     unet_model.load_state_dict(torch.load(unet_path, map_location=device))
     unet_model.to(device)
     unet_model.eval()
-    print("✅ UNet edge detector loaded successfully")
+    print(" UNet edge detector loaded successfully")
 
     # Load Rust Level Classifier
     from torchvision import models
@@ -63,7 +63,7 @@ def load_models(models_dir="models"):
     rust_classifier.load_state_dict(torch.load(classifier_path, map_location=device))
     rust_classifier.to(device)
     rust_classifier.eval()
-    print("✅ Rust level classifier loaded successfully")
+    print(" Rust level classifier loaded successfully")
     
     return yolo_model, unet_model, rust_classifier, device
 
@@ -149,8 +149,8 @@ def robot_perception_inference(image_path, yolo_model, unet_model, rust_classifi
     # 4. Blasting Decision
     decision = None
     if steel_detected:
-        print("✅ Steel Surface Detected.")
-        print("✅ Edge Map Generated.")
+        print(" Steel Surface Detected.")
+        print(" Edge Map Generated.")
         if rust_detected:
             print(f"⚡ Rust Detected - Rust Level: {rust_level} (confidence: {rust_confidence:.2f})")
             if rust_level == 'SA2.5':
@@ -158,12 +158,12 @@ def robot_perception_inference(image_path, yolo_model, unet_model, rust_classifi
                 print(f"💨 Decision: {decision}.")
             elif rust_level == 'SA3.0':
                 decision = "Heavy Blasting Required"
-                print(f"💥 Decision: {decision}.")
+                print(f" Decision: {decision}.")
         else:
             decision = "No Blasting Needed"
-            print(f"✅ Surface is Clean. {decision}.")
+            print(f" Surface is Clean. {decision}.")
     else:
-        print("❌ No Steel Surface Detected.")
+        print(" No Steel Surface Detected.")
         decision = "No Action Required - Not Steel"
 
     # 5. Visualization
